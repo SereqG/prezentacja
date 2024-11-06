@@ -1,43 +1,125 @@
 "use client";
 
+import "@/app/styles/globe.css";
+
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 
 export const Globe = () => {
+  const loader = new GLTFLoader();
   const refContainer = useRef(null);
-  const color = new THREE.Color().setHex(0x18181b);
+
+  let earth;
+  let isDragging = false;
+  let previousMousePosition = { x: 0, y: 0 };
+  let velocity = new THREE.Vector2(0, 0); // For momentum
+
   useEffect(() => {
     const scene = new THREE.Scene();
-    scene.background = color;
     const camera = new THREE.PerspectiveCamera(
-      75,
+      42,
       window.innerWidth / window.innerHeight,
       0.1,
-      1000
+      100
     );
 
-    const renderer = new THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    const renderer = new THREE.WebGLRenderer({ alpha: true });
+    renderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
 
-    refContainer.current &&
+    if (refContainer.current) {
       refContainer.current.appendChild(renderer.domElement);
+    }
 
-    const geometry = new THREE.BoxGeometry(1, 1, 1);
-    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-    const cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
+    loader.load(
+      "/3D/earth.glb",
+      function (gltf) {
+        earth = gltf.scene;
+        earth.scale.set(1.2, 1.2, 1.2);
+        scene.add(earth);
+      },
+      undefined,
+      function (error) {
+        console.error(error);
+      }
+    );
+
+    const topLight = new THREE.DirectionalLight(0xffffff, 4);
+    topLight.position.set(-200, 0, 400);
+    scene.add(topLight);
 
     camera.position.z = 5;
 
     function animate() {
       requestAnimationFrame(animate);
-      cube.rotation.x += 0.01;
-      cube.rotation.y += 0.01;
+
+      if (earth) {
+        if (!isDragging) {
+          // Apply momentum to rotation when the mouse is released
+          earth.rotation.y += velocity.x;
+          earth.rotation.x += velocity.y;
+
+          // Gradually reduce velocity for the damping effect
+          velocity.multiplyScalar(0.95);
+
+          // Stop rotation when velocity is close to zero
+          if (velocity.length() < 0.001) {
+            velocity.set(0, 0);
+          }
+        }
+
+        // Clamp x-axis rotation to avoid flipping the model out of view
+        earth.rotation.x = THREE.MathUtils.clamp(
+          earth.rotation.x,
+          -Math.PI / 2,
+          Math.PI / 2
+        );
+      }
 
       renderer.render(scene, camera);
     }
 
+    function onMouseDown(e) {
+      isDragging = true;
+      previousMousePosition = { x: e.clientX, y: e.clientY };
+    }
+
+    function onMouseUp() {
+      isDragging = false;
+    }
+
+    function onMouseMove(e) {
+      if (isDragging) {
+        const deltaMove = {
+          x: e.clientX - previousMousePosition.x,
+          y: e.clientY - previousMousePosition.y,
+        };
+
+        // Update rotation based on drag movement
+        earth.rotation.y += deltaMove.x * 0.005;
+        earth.rotation.x += deltaMove.y * 0.005;
+
+        // Set velocity for momentum
+        velocity.x = deltaMove.x * 0.005;
+        velocity.y = deltaMove.y * 0.005;
+
+        // Update previous mouse position
+        previousMousePosition = { x: e.clientX, y: e.clientY };
+      }
+    }
+
+    document.addEventListener("mousedown", onMouseDown);
+    document.addEventListener("mouseup", onMouseUp);
+    document.addEventListener("mousemove", onMouseMove);
+
     animate();
+
+    return () => {
+      document.removeEventListener("mousedown", onMouseDown);
+      document.removeEventListener("mouseup", onMouseUp);
+      document.removeEventListener("mousemove", onMouseMove);
+    };
   }, []);
-  return <div ref={refContainer}></div>;
+
+  return <div ref={refContainer} className="globe"></div>;
 };
