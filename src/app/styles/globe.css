@@ -1,0 +1,22 @@
+.globe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+  aspect-ratio: 1/1;
+  background: radial-gradient(farthest-side, #9eff9b2f, #18181b);
+  animation-name: reveal;
+  animation-duration: 10s;
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

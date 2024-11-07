@@ -1,7 +1,57 @@
 .hello-world {
   min-width: 750px;
-  font-size: 60px;
+  font-size: 78px;
   font-weight: bold;
   color: #ebb884;
-  text-align: center;
+}
+
+.paragraph {
+  font-weight: 500;
+  max-width: 500px;
+  color: #fff;
+  font-size: 34px;
+  animation-name: reveal;
+  animation-duration: 12s;
+}
+
+.startBtn {
+  border-radius: 5px;
+  font-size: 20px;
+  color: #fff;
+  border: 1px solid white;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+  transition-duration: 500ms;
+  animation-name: reveal;
+  animation-duration: 12s;
+}
+
+.startBtn::before {
+  border-radius: 5px;
+  content: "";
+  background-color: #ebb884;
+  width: 100%;
+  height: 0%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  transition: 0.7s;
+}
+
+.startBtn:hover::before {
+  height: 100%;
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

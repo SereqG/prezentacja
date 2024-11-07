@@ -13,7 +13,7 @@ export const Globe = () => {
   let earth;
   let isDragging = false;
   let previousMousePosition = { x: 0, y: 0 };
-  let velocity = new THREE.Vector2(0, 0); // For momentum
+  let velocity = new THREE.Vector2(0.003, 0.0003); // For momentum
 
   useEffect(() => {
     const scene = new THREE.Scene();

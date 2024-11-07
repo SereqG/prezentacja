@@ -45,6 +45,12 @@ export const HeroHeader = () => {
   return (
     <div className="hello-world">
       <span>{displayText}</span>
+      <p className="paragraph">
+        Języki programowania i środowisko programistyczne
+      </p>
+      <a className="startBtn" href="#start">
+        Rozpocznij prezentację
+      </a>
     </div>
   );
 };

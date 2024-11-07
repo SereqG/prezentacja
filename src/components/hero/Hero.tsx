@@ -9,7 +9,6 @@ export const Hero = () => {
       </div>
       <div className="flex flex-col justify-center items-center">
         <Globe />
-        <p className="text-gray-600 font-bold tracking-widest">Obróć ziemię</p>
       </div>
     </div>
   );
