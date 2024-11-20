@@ -13,7 +13,7 @@ export const Globe = () => {
   let earth;
   let isDragging = false;
   let previousMousePosition = { x: 0, y: 0 };
-  let velocity = new THREE.Vector2(0.003, 0.0003); // For momentum
+  let velocity = new THREE.Vector2(0.003, 0.0003);
 
   useEffect(() => {
     const scene = new THREE.Scene();
@@ -35,7 +35,7 @@ export const Globe = () => {
       "/3D/earth.glb",
       function (gltf) {
         earth = gltf.scene;
-        earth.scale.set(1.2, 1.2, 1.2);
+        earth.scale.set(1, 1, 1);
         scene.add(earth);
       },
       undefined,
@@ -48,7 +48,13 @@ export const Globe = () => {
     topLight.position.set(-200, 0, 400);
     scene.add(topLight);
 
-    camera.position.z = 5;
+    if (window.innerWidth < 550) {
+      camera.position.z = 8;
+    } else if (window.innerWidth < 900) {
+      camera.position.z = 6.5;
+    } else {
+      camera.position.z = 4;
+    }
 
     function animate() {
       requestAnimationFrame(animate);

@@ -1,5 +1,6 @@
 .hello-world {
-  min-width: 750px;
+  width: 40vw;
+  min-width: 500px;
   font-size: 78px;
   font-weight: bold;
   color: #ebb884;
@@ -53,5 +54,22 @@
   }
   100% {
     opacity: 1;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .hello-world {
+    width: 100vw;
+    font-size: 42px;
+  }
+  .paragraph {
+    width: 300px;
+    font-size: 22px;
+  }
+
+  .startBtn {
+    border-radius: 3px;
+    font-size: 12px;
+    padding: 10px;
   }
 }
