@@ -6,6 +6,7 @@ import { AudioPlayer } from "../general/AudioPlayer";
 import { Script } from "@/types/script";
 import { Highlighter } from "../general/Highlighter";
 import ScriptData from "../../../public/scripts/languages.json";
+import { LangAnimation } from "./LangAnimation";
 
 export const Languages = () => {
   const [currentTime, setCurrentTime] = useState<number>(0);
@@ -38,8 +39,10 @@ export const Languages = () => {
   return (
     <div className="mt-10" id="start" ref={audioRef}>
       <Header text="1. Najpopularniejsze języki programowania" />
-      <div className="flex mt-10 justify-center py-32 items-center">
-        <div className="w-1/3"></div>
+      <div className="flex justify-center py-12 items-center">
+        <div className="w-1/3">
+          <LangAnimation />
+        </div>
         <div className="w-1/3 px-20 space-y-10">
           <Highlighter
             script={ScriptData as Script}
