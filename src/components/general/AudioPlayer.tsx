@@ -1,23 +1,24 @@
 import "@/app/styles/audioPlayer.css";
 
 import { Howl } from "howler";
-import React, { useEffect, useState } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { FaPause, FaPlay, FaStepBackward, FaStepForward } from "react-icons/fa";
 
-const tracks: string[] = ["audio/languages.mp3", "audio/languages.mp3"];
+const tracks: string[] = ["audio/languages.mp3", "audio/prezentacja2.mp3"];
 
 interface AudioPlayerProps {
   onTimeUpdate: (time: number) => void;
-  isVisible: boolean; // Sterowanie widocznością
+  setCurrentSlide: Dispatch<SetStateAction<number>>;
+  currentSlide: number;
 }
 
 export const AudioPlayer: React.FC<AudioPlayerProps> = ({
   onTimeUpdate,
-  isVisible,
+  setCurrentSlide,
+  currentSlide,
 }) => {
   const [audio, setAudio] = useState<Howl | null>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
-  const [currentAudio, setCurrentAudio] = useState<number>(0);
 
   // Aktualizacja audio przy zmianie currentAudio
   useEffect(() => {
@@ -27,7 +28,7 @@ export const AudioPlayer: React.FC<AudioPlayerProps> = ({
     }
 
     const newSound = new Howl({
-      src: [tracks[currentAudio]],
+      src: [tracks[currentSlide]],
       html5: true,
     });
     setAudio(newSound);
@@ -36,7 +37,7 @@ export const AudioPlayer: React.FC<AudioPlayerProps> = ({
       newSound.unload();
       setIsPlaying(false); // Czyszczenie audio po zmianie
     };
-  }, [currentAudio]);
+  }, [currentSlide]);
 
   // Aktualizacja czasu odtwarzania
   useEffect(() => {
@@ -62,18 +63,13 @@ export const AudioPlayer: React.FC<AudioPlayerProps> = ({
     }
   };
 
-  // Widoczność komponentu
-  if (!isVisible) {
-    return null;
-  }
-
   return (
     <div className="fixed bottom-8 items-center right-8 flex px-6 py-1 border-green-400 border text-white font-bold rounded-full overflow-hidden focus:outline-none">
       <button
-        onClick={() => setCurrentAudio(Math.max(0, currentAudio - 1))}
-        disabled={currentAudio === 0}
+        onClick={() => setCurrentSlide(Math.max(0, currentSlide - 1))}
+        disabled={currentSlide === 0}
         className={`${
-          currentAudio === 0 && "opacity-20"
+          currentSlide === 0 && "opacity-20"
         } p-3 rounded-full hover:bg-green-400 flex justify-center items-center hover:bg-opacity-5`}
       >
         <FaStepBackward />
@@ -86,11 +82,11 @@ export const AudioPlayer: React.FC<AudioPlayerProps> = ({
       </button>
       <button
         onClick={() =>
-          setCurrentAudio(Math.min(tracks.length - 1, currentAudio + 1))
+          setCurrentSlide(Math.min(tracks.length - 1, currentSlide + 1))
         }
-        disabled={currentAudio === tracks.length - 1}
+        disabled={currentSlide === tracks.length - 1}
         className={`${
-          currentAudio === tracks.length - 1 && "opacity-20"
+          currentSlide === tracks.length - 1 && "opacity-20"
         } p-3 rounded-full hover:bg-green-400 flex justify-center items-center hover:bg-opacity-5`}
       >
         <FaStepForward />

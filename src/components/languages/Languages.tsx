@@ -1,59 +1,34 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import { Header } from "../general/Header";
-import { AudioPlayer } from "../general/AudioPlayer";
 import { Script } from "@/types/script";
 import { Highlighter } from "../general/Highlighter";
 import ScriptData from "../../../public/scripts/languages.json";
 import { LangAnimation } from "./LangAnimation";
 
-export const Languages = () => {
-  const [currentTime, setCurrentTime] = useState<number>(0);
-  const [isAudioVisible, setIsAudioVisible] = useState<boolean>(false);
-  const audioRef = useRef<HTMLDivElement>(null); // Referencja do elementu audio
+type props = {
+  currentTime: number;
+  currnetSlide: number;
+};
 
-  const handleTimeUpdate = (time: number) => {
-    setCurrentTime(time);
-  };
+const order: number = 0;
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsAudioVisible(entry.isIntersecting); // Zaktualizuj widoczność audio
-      },
-      { threshold: 0.5 } // Audio uruchomi się, gdy 50% elementu jest widoczne
-    );
-
-    if (audioRef.current) {
-      observer.observe(audioRef.current);
-    }
-
-    return () => {
-      if (audioRef.current) {
-        observer.unobserve(audioRef.current);
-      }
-    };
-  }, []);
-
-  return (
-    <div className="mt-10" id="start" ref={audioRef}>
-      <Header text="1. Najpopularniejsze języki programowania" />
-      <div className="flex justify-center py-12 items-center">
-        <div className="w-1/3">
-          <LangAnimation />
-        </div>
-        <div className="w-1/3 px-20 space-y-10">
-          <Highlighter
-            script={ScriptData as Script}
-            currentTime={currentTime}
-          />
-          <AudioPlayer
-            onTimeUpdate={handleTimeUpdate}
-            isVisible={isAudioVisible}
-          />
+export const Languages = ({ currentTime, currnetSlide }: props) => {
+  if (currnetSlide === order)
+    return (
+      <div className="mt-10" id="start">
+        <Header text="1. Najpopularniejsze języki programowania" />
+        <div className="flex justify-center py-12 items-center">
+          <div className="w-1/3">
+            <LangAnimation />
+          </div>
+          <div className="w-1/3 px-20 space-y-10">
+            <Highlighter
+              script={ScriptData as Script}
+              currentTime={currentTime}
+            />
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
 };
