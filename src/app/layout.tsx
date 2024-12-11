@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { CustomProvider } from "rsuite";
 import "./styles/globals.css";
+import "rsuite/dist/rsuite-no-reset.min.css";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,7 +30,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <CustomProvider>{children}</CustomProvider>
       </body>
     </html>
   );

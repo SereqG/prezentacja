@@ -3,7 +3,6 @@
 import { AudioPlayer } from "@/components/general/AudioPlayer";
 import { Hero } from "@/components/hero/Hero";
 import { Languages } from "@/components/languages/Languages";
-import { Slide2 } from "@/components/slide2/Slide2";
 import { useState } from "react";
 
 export default function Home() {
@@ -20,7 +19,6 @@ export default function Home() {
     <div className="bg-zinc-900">
       <Hero />
       <Languages currentTime={currentTime} currnetSlide={currentSlide} />
-      <Slide2 currentTime={currentTime} currnetSlide={currentSlide} />
 
       <AudioPlayer
         onTimeUpdate={handleTimeUpdate}
