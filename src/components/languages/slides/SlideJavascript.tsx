@@ -1,6 +1,11 @@
 import Image from "next/image";
+import { Dispatch, SetStateAction } from "react";
 
-export const SlideJavascript = () => {
+type props = {
+  setIsModalOpened: Dispatch<SetStateAction<boolean>>;
+};
+
+export const SlideJavascript = ({ setIsModalOpened }: props) => {
   return (
     <div className="bg-yellow-400 w-full h-full flex flex-col items-center relative justify-between p-5">
       <div className="w-full flex justify-center items-center">
@@ -12,6 +17,7 @@ export const SlideJavascript = () => {
         użytkownika.
       </div>
       <button
+        onClick={() => setIsModalOpened(true)}
         type="button"
         className=" text-white bg-gradient-to-r from-yellow-500 via-yellow-600 to-yellow-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:focus:ring-yellow-800 shadow-lg shadow-yellow-500/50 dark:shadow-lg dark:shadow-yellow-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
       >

@@ -10,17 +10,6 @@ import { SlidePhp } from "./slides/SlidePhp";
 import { SlideRust } from "./slides/SlideRust";
 import { ModalComponent } from "./Modal";
 
-const items = [
-  <SlideJavascript />,
-  <SlidePython />,
-  <div className="h-full bg-green-500 flex items-center justify-center text-white">
-    <SlideCPP />
-  </div>,
-  <SlideJava />,
-  <SlidePhp />,
-  <SlideRust />,
-];
-
 export const LangAnimation = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -30,6 +19,16 @@ export const LangAnimation = () => {
     setIsModalOpened(false);
   };
 
+  const items = [
+    <SlideJavascript setIsModalOpened={setIsModalOpened} />,
+    <SlidePython setIsModalOpened={setIsModalOpened} />,
+    <div className="h-full bg-green-500 flex items-center justify-center text-white">
+      <SlideCPP setIsModalOpened={setIsModalOpened} />
+    </div>,
+    <SlideJava setIsModalOpened={setIsModalOpened} />,
+    <SlidePhp setIsModalOpened={setIsModalOpened} />,
+    <SlideRust setIsModalOpened={setIsModalOpened} />,
+  ];
   // Function to go to the next slide
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length);
@@ -85,8 +84,7 @@ export const LangAnimation = () => {
       <ModalComponent
         onCloseModal={onCloseModal}
         isOpen={isModalOpened}
-        title="Python"
-        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+        currentIndex={currentIndex}
       />
     </>
   );

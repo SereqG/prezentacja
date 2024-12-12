@@ -1,0 +1,28 @@
+{
+  "languages": [
+    {
+      "title": "JavaScript",
+      "text": "JavaScript to wszechstronny język programowania używany głównie do tworzenia interaktywnych elementów stron internetowych. Umożliwia manipulowanie elementami DOM, komunikację z serwerami oraz budowanie aplikacji webowych. Dzięki platformie Node.js znajduje także zastosowanie poza przeglądarką."
+    },
+    {
+      "title": "Python",
+      "text": "Python to prosty i wszechstronny język programowania, znany z czytelnej składni. Wykorzystywany jest w analizie danych, uczeniu maszynowym, tworzeniu aplikacji webowych i skryptach automatyzujących zadania. Jest idealny dla początkujących i zaawansowanych programistów."
+    },
+    {
+      "title": "C++",
+      "text": "C++ to wydajny język programowania używany w aplikacjach wymagających wysokiej wydajności, takich jak gry, systemy operacyjne i oprogramowanie wbudowane. Łączy funkcje programowania obiektowego z niskopoziomową kontrolą sprzętu."
+    },
+    {
+      "title": "Java",
+      "text": "Java to uniwersalny język programowania o wysokiej przenośności. Wykorzystywany jest w aplikacjach mobilnych (Android), serwerowych, a także systemach wbudowanych. Słynie z zasady 'napisz raz, uruchom wszędzie'."
+    },
+    {
+      "title": "PHP",
+      "text": "PHP to język skryptowy służący głównie do tworzenia dynamicznych stron internetowych. Używany na serwerze, umożliwia komunikację z bazami danych i generowanie zawartości HTML w czasie rzeczywistym."
+    },
+    {
+      "title": "Rust",
+      "text": "Rust to nowoczesny język programowania zaprojektowany z myślą o bezpieczeństwie i wysokiej wydajności. Wykorzystywany jest w systemach wbudowanych, aplikacjach wymagających niskiego poziomu dostępu oraz w aplikacjach webowych."
+    }
+  ]
+}
