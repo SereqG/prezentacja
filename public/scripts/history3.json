@@ -1,0 +1,36 @@
+[
+  { "time": 55.3, "text": "W latach 70. pojawił się Basic, " },
+  { "time": 57.8, "text": "zaprojektowany jako prosty" },
+  { "time": 59.7, "text": "i dostępny dla każdego." },
+  {
+    "time": 61.1,
+    "text": "To właśnie w tym języku młody Bill Gates,"
+  },
+  { "time": 63.5, "text": "wraz ze swoim zespołem w Microsoft," },
+  { "time": 65.7, "text": "stawiał pierwsze kroki w programowaniu." },
+  { "time": 67.8, "text": "Lata 80. i 90." },
+  {
+    "time": 70.6,
+    "text": "były złotą erą języków wysokiego poziomu."
+  },
+  { "time": 73.7, "text": "Wiele z nich," },
+  {
+    "time": 74.7,
+    "text": "jak C, Pascal, SQL czy Objective-C,"
+  },
+  { "time": 77.4, "text": "ukształtowało programowanie w formie," },
+  { "time": 79.8, "text": "jaką znamy dziś." },
+  {
+    "time": 81.1,
+    "text": "Jednocześnie,"
+  },
+  { "time": 82.25, "text": "w 1993 roku," },
+  {
+    "time": 85,
+    "text": "pojawił się R,"
+  },
+  {
+    "time": 86.3,
+    "text": "otwierając nowe możliwości w analizie danych i sztucznej inteligencji."
+  }
+]

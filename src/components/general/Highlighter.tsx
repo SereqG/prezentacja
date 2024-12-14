@@ -12,7 +12,7 @@ export const Highlighter: React.FC<HighlighterProps> = ({
   currentTime,
 }) => {
   return (
-    <div className="text-xl max-h-96 overflow-hidden flex items-end">
+    <div className="text-xl h-80 overflow-hidden flex items-end">
       <div>
         {script.map((item, index) => (
           <span

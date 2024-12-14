@@ -1,0 +1,21 @@
+[
+  { "time": 23.3, "text": "W połowie XX wieku powstał Assembly," },
+  { "time": 26.7, "text": "pierwszy język używany w kalkulatorach." },
+  { "time": 29.5, "text": "W 1957 roku IBM zaprezentował Fortran," },
+  {
+    "time": 34.7,
+    "text": "który do dziś znajduje zastosowanie w niektórych nowoczesnych urządzeniach."
+  },
+  { "time": 39, "text": "Rok później powstał Algol," },
+  { "time": 41.7, "text": "inspiracja dla współczesnych języków," },
+  { "time": 44.8, "text": "takich jak C," },
+  {
+    "time": 46,
+    "text": "C++ czy Java."
+  },
+  { "time": 48.3, "text": "Dzięki swojej przyjaznej składni" },
+  {
+    "time": 50.4,
+    "text": "Algol zyskał miano jednego z najbardziej wpływowych języków w historii."
+  }
+]

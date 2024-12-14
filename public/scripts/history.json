@@ -1,0 +1,16 @@
+[
+  { "time": 0.1, "text": "Od algorytmów Ady Lovelace z XIX wieku" },
+  { "time": 2.8, "text": "po współczesne aplikacje," },
+  { "time": 4.5, "text": "które uprzyjemniają nam życie." },
+  { "time": 6, "text": "Historia języków programowania" },
+  { "time": 8, "text": "to fascynująca podróż przez innowacje." },
+  { "time": 10.5, "text": "Ada Lovelace," },
+  { "time": 11.9, "text": "brytyjska matematyczka," },
+  {
+    "time": 13.5,
+    "text": "stworzyła pierwszy algorytm dla maszyny analitycznej"
+  },
+  { "time": 16.7, "text": "zaprojektowanej przez Charles’a Babbage’a," },
+  { "time": 19.5, "text": "kładąc fundamenty pod to," },
+  { "time": 21.4, "text": "co dziś nazywamy programowaniem." }
+]
