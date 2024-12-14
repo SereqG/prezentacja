@@ -2,14 +2,13 @@
 
 import { AudioPlayer } from "@/components/general/AudioPlayer";
 import { Hero } from "@/components/hero/Hero";
+import { History } from "@/components/history/History";
 import { Languages } from "@/components/languages/Languages";
 import { useState } from "react";
 
 export default function Home() {
   const [currentTime, setCurrentTime] = useState<number>(0);
   const [currentSlide, setCurrentSlide] = useState<number>(0);
-
-  console.log(currentTime);
 
   const handleTimeUpdate = (time: number) => {
     setCurrentTime(time);
@@ -19,6 +18,7 @@ export default function Home() {
     <div className="bg-zinc-900">
       <Hero />
       <Languages currentTime={currentTime} currnetSlide={currentSlide} />
+      <History currentTime={currentTime} currnetSlide={currentSlide} />
 
       <AudioPlayer
         onTimeUpdate={handleTimeUpdate}

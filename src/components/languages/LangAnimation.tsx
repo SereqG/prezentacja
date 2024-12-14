@@ -1,6 +1,7 @@
+/* eslint-disable react/jsx-key */
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { SlideJavascript } from "./slides/SlideJavascript";
 import { SlidePython } from "./slides/SlidePython";
@@ -9,11 +10,14 @@ import { SlideJava } from "./slides/SlideJava";
 import { SlidePhp } from "./slides/SlidePhp";
 import { SlideRust } from "./slides/SlideRust";
 import { ModalComponent } from "./Modal";
+import React from "react";
 
 export const LangAnimation = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-
   const [isModalOpened, setIsModalOpened] = useState(false);
+
+  const headerRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   const onCloseModal = () => {
     setIsModalOpened(false);
@@ -51,8 +55,38 @@ export const LangAnimation = () => {
     return () => clearInterval(interval);
   }, []); // Empty dependency array ensures this runs once on mount
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              setIsVisible(true);
+            }, 1000); // Opóźnienie 1 sekundy
+          }
+        });
+      },
+      { threshold: 0.1 } // Aktywacja, gdy 10% elementu jest widoczne
+    );
+
+    if (headerRef.current) {
+      observer.observe(headerRef.current);
+    }
+
+    return () => {
+      if (headerRef.current) {
+        observer.unobserve(headerRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <>
+    <div
+      ref={headerRef}
+      className={`w-full text-center my-3 transition-all duration-1000 ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      }`}
+    >
       <div className="relative w-full overflow-hidden rounded-2xl">
         <div
           className="flex transition-transform duration-500"
@@ -86,6 +120,6 @@ export const LangAnimation = () => {
         isOpen={isModalOpened}
         currentIndex={currentIndex}
       />
-    </>
+    </div>
   );
 };

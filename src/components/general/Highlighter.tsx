@@ -12,17 +12,19 @@ export const Highlighter: React.FC<HighlighterProps> = ({
   currentTime,
 }) => {
   return (
-    <div className="text-2xl">
-      {script.map((item, index) => (
-        <span
-          key={index}
-          className={`${styles.text} ${
-            currentTime >= item.time ? styles.fadeIn : ""
-          }`}
-        >
-          {item.text}{" "}
-        </span>
-      ))}
+    <div className="text-xl max-h-96 overflow-hidden flex items-end">
+      <div>
+        {script.map((item, index) => (
+          <span
+            key={index}
+            className={`${styles.text} ${
+              currentTime >= item.time ? styles.fadeIn : ""
+            }`}
+          >
+            {item.text}{" "}
+          </span>
+        ))}
+      </div>
     </div>
   );
 };

@@ -1,0 +1,18 @@
+[
+  { "time": 41.7, "text": "Najpopularniejszy podział języków programowania" },
+  {
+    "time": 44.5,
+    "text": "to ten na języki wysokopoziomowe i niskopoziomowe."
+  },
+  {
+    "time": 47.2,
+    "text": "Języki wysokopoziomowe upraszczają skomplikowane procesy,"
+  },
+  { "time": 51, "text": "pozwalając skupić się na pomysłach," },
+  { "time": 53.5, "text": "a nie na technicznych detalach sprzętu." },
+  { "time": 55.5, "text": "Z kolei języki niskopoziomowe to domena tych, " },
+  {
+    "time": 59.4,
+    "text": "którzy lubią bezpośrednią kontrolę nad działaniem maszyny."
+  }
+]

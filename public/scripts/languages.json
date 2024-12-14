@@ -1,12 +1,13 @@
 [
-  { "time": 0.1, "text": "Języki programowania to podstawowe" },
-  { "time": 1.8, "text": "narzędzia w świecie technologii," },
-  { "time": 3.6, "text": "a ich wybór zależy od potrzeb projektowych." },
-  { "time": 6.5, "text": "Do najpopularniejszych należą" },
-  { "time": 8.5, "text": "Python, Java, JavaScript, C++, C# oraz Go." },
-  { "time": 13, "text": "Można je podzielić na różne klasy." },
-  { "time": 16, "text": "Języki wysokiego poziomu," },
-  { "time": 18, "text": "takie jak Python, Java czy JavaScript," },
-  { "time": 21, "text": "są łatwe w użyciu dzięki abstrakcji," },
-  { "time": 23, "text": "od złożonych procesów sprzętowych." }
+  { "time": 0.1, "text": "Języki programowania pozwalają na" },
+  { "time": 1.8, "text": "integracje i kontrolowanie zachowań" },
+  { "time": 3.6, "text": "urządzeń elektronicznych," },
+  { "time": 5.5, "text": "od komputerów przez smartfony" },
+  { "time": 7.5, "text": "aż do zegarków czy szczoteczek elektrycznych." },
+  { "time": 11, "text": "To właśnie one przekazują maszynie" },
+  { "time": 13, "text": "instrukcje do wykonania." },
+  { "time": 15.3, "text": "Wśród niezliczonych języków programowania" },
+  { "time": 17, "text": "kilka wyróżnia się jako liderzy branży," },
+  { "time": 20, "text": "Python, JavaScript, Java, PHP, Rust " },
+  { "time": 23.5, "text": "oraz większość języków z rodziny C." }
 ]
