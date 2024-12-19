@@ -4,6 +4,7 @@ import { AudioPlayer } from "@/components/general/AudioPlayer";
 import { Hero } from "@/components/hero/Hero";
 import { History } from "@/components/history/History";
 import { Languages } from "@/components/languages/Languages";
+import { Purpose } from "@/components/purpose/Purpose";
 import { useState } from "react";
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
       <Hero />
       <Languages currentTime={currentTime} currnetSlide={currentSlide} />
       <History currentTime={currentTime} currnetSlide={currentSlide} />
+      <Purpose currentTime={currentSlide} currnetSlide={currentSlide} />
 
       <AudioPlayer
         onTimeUpdate={handleTimeUpdate}

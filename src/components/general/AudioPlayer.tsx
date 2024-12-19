@@ -4,7 +4,11 @@ import { Howl } from "howler";
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { FaPause, FaPlay, FaStepBackward, FaStepForward } from "react-icons/fa";
 
-const tracks: string[] = ["audio/languages.mp3", "audio/history.mp3"];
+const tracks: string[] = [
+  "audio/languages.mp3",
+  "audio/history.mp3",
+  "audio/languages.mp3",
+];
 
 interface AudioPlayerProps {
   onTimeUpdate: (time: number) => void;
