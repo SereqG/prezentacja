@@ -15,7 +15,15 @@ export const Network = () => {
   });
 
   const setup = (p5, canvasParentRef) => {
-    p5.createCanvas(800, 400).parent(canvasParentRef);
+    const parentWidth = canvasParentRef.offsetWidth; // Get the container's width
+    const canvasHeight = 360; // Fixed height or you can calculate dynamically
+    p5.createCanvas(parentWidth, canvasHeight).parent(canvasParentRef);
+
+    // Attach an event listener to resize the canvas when the window resizes
+    p5.windowResized = () => {
+      const newParentWidth = canvasParentRef.offsetWidth;
+      p5.resizeCanvas(newParentWidth, canvasHeight);
+    };
   };
 
   const draw = (p5) => {
@@ -29,73 +37,70 @@ export const Network = () => {
     for (let x = 0; x < p5.width; x++) {
       const y =
         p5.height / 2 +
-        amplitude * p5.sin(frequency * (x - p5.frameCount * speed));
+        (amplitude / 3) *
+          p5.sin(frequency * (x - p5.frameCount * (speed / 10)));
       p5.vertex(x, y);
     }
     p5.endShape();
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50">
-      <h1 className="text-3xl font-bold text-gray-800 mb-6">
-        Wave Propagation Simulation
-      </h1>
-
-      <div className="mb-4">
-        <label className="block text-gray-700 mb-2">Frequency</label>
-        <input
-          type="range"
-          min="0.01"
-          max="0.1"
-          step="0.001"
-          value={waveParams.frequency}
-          onChange={(e) =>
-            setWaveParams((prev) => ({
-              ...prev,
-              frequency: parseFloat(e.target.value),
-            }))
-          }
-          className="w-64"
-        />
+    <div className="w-full flex flex-col justify-between items-center text-white">
+      <div className="flex justify-between w-full">
+        <div className="mb-4">
+          <label className="block text-white mb-2">Częstotliwość</label>
+          <input
+            type="range"
+            min="0.01"
+            max="0.1"
+            step="0.001"
+            value={waveParams.frequency}
+            onChange={(e) =>
+              setWaveParams((prev) => ({
+                ...prev,
+                frequency: parseFloat(e.target.value),
+              }))
+            }
+            className="w-full"
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-white mb-2">Amplituda</label>
+          <input
+            type="range"
+            min="10"
+            max="200"
+            step="0.01"
+            value={waveParams.amplitude}
+            onChange={(e) =>
+              setWaveParams((prev) => ({
+                ...prev,
+                amplitude: parseInt(e.target.value),
+              }))
+            }
+            className="w-full"
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-white mb-2">Prędkość</label>
+          <input
+            type="range"
+            min="10"
+            max="200"
+            step="0.1"
+            value={waveParams.speed}
+            onChange={(e) =>
+              setWaveParams((prev) => ({
+                ...prev,
+                speed: parseInt(e.target.value),
+              }))
+            }
+            className="w-full"
+          />
+        </div>
       </div>
 
-      <div className="mb-4">
-        <label className="block text-gray-700 mb-2">Amplitude</label>
-        <input
-          type="range"
-          min="10"
-          max="200"
-          step="0.01"
-          value={waveParams.amplitude}
-          onChange={(e) =>
-            setWaveParams((prev) => ({
-              ...prev,
-              amplitude: parseInt(e.target.value),
-            }))
-          }
-          className="w-64"
-        />
-      </div>
-
-      <div className="mb-4">
-        <label className="block text-gray-700 mb-2">Speed</label>
-        <input
-          type="range"
-          min="1"
-          max="5"
-          step="0.5"
-          value={waveParams.speed}
-          onChange={(e) =>
-            setWaveParams((prev) => ({
-              ...prev,
-              speed: parseInt(e.target.value),
-            }))
-          }
-          className="w-64"
-        />
-      </div>
-
-      <div className="border rounded shadow-lg">
+      <div className="border rounded shadow-lg w-full">
         <Sketch setup={setup} draw={draw} />
       </div>
     </div>
