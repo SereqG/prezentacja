@@ -5,6 +5,8 @@ import { Hero } from "@/components/hero/Hero";
 import { History } from "@/components/history/History";
 import { Languages } from "@/components/languages/Languages";
 import { Purpose } from "@/components/purpose/Purpose";
+import { SucessfulCode } from "@/components/sucessfulCode/SucessfulCode";
+import { Tools } from "@/components/tools/Tools";
 import { useState } from "react";
 
 export default function Home() {
@@ -21,6 +23,8 @@ export default function Home() {
       <Languages currentTime={currentTime} currnetSlide={currentSlide} />
       <History currentTime={currentTime} currnetSlide={currentSlide} />
       <Purpose currentTime={currentSlide} currnetSlide={currentSlide} />
+      <Tools currentTime={currentSlide} currnetSlide={currentSlide} />
+      <SucessfulCode currentTime={currentSlide} currnetSlide={currentSlide} />
 
       <AudioPlayer
         onTimeUpdate={handleTimeUpdate}

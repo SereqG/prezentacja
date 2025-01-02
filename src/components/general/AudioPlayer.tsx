@@ -8,6 +8,8 @@ const tracks: string[] = [
   "audio/languages.mp3",
   "audio/history.mp3",
   "audio/languages.mp3",
+  "audio/languages.mp3",
+  "audio/languages.mp3",
 ];
 
 interface AudioPlayerProps {
