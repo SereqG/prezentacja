@@ -1,0 +1,42 @@
+[
+  {
+    "time": 55,
+    "text": "Najważniejszym narzędziem pracy programisty są jednak środowiska IDE "
+  },
+  {
+    "time": 59.5,
+    "text": "(Integrated Development Environment),"
+  },
+  {
+    "time": 62,
+    "text": "takie jak Visual Studio Code, IntelliJ IDEA czy PyCharm,"
+  },
+  {
+    "time": 67,
+    "text": "to w tych programach pisze się kod."
+  },
+  {
+    "time": 69,
+    "text": "Oferują one funkcje podpowiedzi kodu,"
+  },
+  {
+    "time": 71.2,
+    "text": "automatyczne uzupełnianie i debugowanie,"
+  },
+  {
+    "time": 74,
+    "text": "co znacznie przyspiesza pracę."
+  },
+  {
+    "time": 76.4,
+    "text": "W bardziej złożonych projektach przydają się również narzędzia do konteneryzacji i wirtualizacji,"
+  },
+  {
+    "time": 84,
+    "text": "takie jak Docker, "
+  },
+  {
+    "time": 84.7,
+    "text": "które pozwalają tworzyć izolowane środowiska dla aplikacji."
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "time": 26.3,
+    "text": "API (interfejsy programowania aplikacji) "
+  },
+  {
+    "time": 30.65,
+    "text": "to narzędzie do komunikacji między różnymi systemami i aplikacjami, "
+  },
+  {
+    "time": 35.2,
+    "text": "dzięki temu aplikacje mogą wymieniać się danymi."
+  },
+  {
+    "time": 38.8,
+    "text": "Narzędzia jak Postman czy Swagger ułatwiają testowanie i dokumentowanie tych interfejsów."
+  },
+  {
+    "time": 44.7,
+    "text": "Gdy w kodzie pojawiają się błędy,"
+  },
+  {
+    "time": 47.3,
+    "text": "programiści sięgają po debuggery, "
+  },
+  {
+    "time": 50,
+    "text": "które pozwalają krok po kroku analizować działanie aplikacji i znaleźć problem."
+  }
+]

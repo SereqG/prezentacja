@@ -1,0 +1,14 @@
+[
+  {
+    "time": 89.1,
+    "text": "Przed wypuszczeniem aplikacji warto ją przetestować, "
+  },
+  {
+    "time": 92.2,
+    "text": "w tym celu programiści używają narzędzia do CI/CD,"
+  },
+  {
+    "time": 96.1,
+    "text": "które pozwalają na wprowadzanie zmian zgodnie z założeniami biznesowymi i z zachowaniem zasad bezpieczeństwa."
+  }
+]

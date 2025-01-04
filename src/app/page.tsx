@@ -24,7 +24,7 @@ export default function Home() {
       <History currentTime={currentTime} currnetSlide={currentSlide} />
       <Purpose currentTime={currentTime} currnetSlide={currentSlide} />
       <Tools currentTime={currentTime} currnetSlide={currentSlide} />
-      <SucessfulCode currentTime={currentSlide} currnetSlide={currentSlide} />
+      <SucessfulCode currentTime={currentTime} currnetSlide={currentSlide} />
 
       <AudioPlayer
         onTimeUpdate={handleTimeUpdate}
