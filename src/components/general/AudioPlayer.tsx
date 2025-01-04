@@ -7,8 +7,8 @@ import { FaPause, FaPlay, FaStepBackward, FaStepForward } from "react-icons/fa";
 const tracks: string[] = [
   "audio/languages.mp3",
   "audio/history.mp3",
-  "audio/languages.mp3",
-  "audio/languages.mp3",
+  "audio/usecases.mp3",
+  "audio/tools.mp3",
   "audio/languages.mp3",
 ];
 

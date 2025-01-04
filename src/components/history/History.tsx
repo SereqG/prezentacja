@@ -18,7 +18,6 @@ const scripts = [Script1, Script2, Script3];
 const order: number = 1;
 
 export const History = ({ currentTime, currnetSlide }: props) => {
-  console.log(currentTime);
   const getScript = () => {
     if (currentTime < 23) return scripts[0];
     if (currentTime > 23 && currentTime < 55) return scripts[1];

@@ -1,0 +1,29 @@
+[
+  { "time": 0.1, "text": "Każdy aspekt naszego życia opiera się na kodzie." },
+  {
+    "time": 2.4,
+    "text": "Aplikacje takie jak Instagram czy Spotify"
+  },
+  {
+    "time": 5,
+    "text": "działają dzięki językom Swift i Kotlin, "
+  },
+  {
+    "time": 7.7,
+    "text": "umożliwiając przesyłanie zdjęć czy słuchanie muzyki."
+  },
+  { "time": 10.9, "text": "Podobnie strony internetowe i sklepy online" },
+  { "time": 13.3, "text": "wykorzystują PHP, Python i JavaScript, " },
+  {
+    "time": 16.3,
+    "text": "tworząc interaktywne środowiska."
+  },
+  {
+    "time": 18.8,
+    "text": "W nauce i biznesie języki R i Python napędzają analizy danych, "
+  },
+  {
+    "time": 24.2,
+    "text": "przewidując trendy, wspierając medycynę i rozwój sztucznej inteligencji. "
+  }
+]

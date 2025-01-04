@@ -22,8 +22,8 @@ export default function Home() {
       <Hero />
       <Languages currentTime={currentTime} currnetSlide={currentSlide} />
       <History currentTime={currentTime} currnetSlide={currentSlide} />
-      <Purpose currentTime={currentSlide} currnetSlide={currentSlide} />
-      <Tools currentTime={currentSlide} currnetSlide={currentSlide} />
+      <Purpose currentTime={currentTime} currnetSlide={currentSlide} />
+      <Tools currentTime={currentTime} currnetSlide={currentSlide} />
       <SucessfulCode currentTime={currentSlide} currnetSlide={currentSlide} />
 
       <AudioPlayer

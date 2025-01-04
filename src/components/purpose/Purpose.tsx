@@ -3,8 +3,8 @@
 import { Header } from "../general/Header";
 import { Script } from "@/types/script";
 import { Highlighter } from "../general/Highlighter";
-import Script1 from "../../../public/scripts/languages.json";
-import Script2 from "../../../public/scripts/languages2.json";
+import Script1 from "../../../public/scripts/purpose.json";
+import Script2 from "../../../public/scripts/purpose2.json";
 import Script3 from "../../../public/scripts/languages3.json";
 import { PurposeAnimation } from "./PurposeAnimation";
 
@@ -18,10 +18,10 @@ const scripts = [Script1, Script2, Script3];
 const order: number = 2;
 
 export const Purpose = ({ currentTime, currnetSlide }: props) => {
+  console.log(currentTime);
   const getScript = () => {
-    if (currentTime < 26) return scripts[0];
-    if (currentTime > 26 && currentTime < 41) return scripts[1];
-    if (currentTime > 41) return scripts[2];
+    if (currentTime < 29) return scripts[0];
+    if (currentTime > 26) return scripts[1];
   };
 
   if (currnetSlide === order)
