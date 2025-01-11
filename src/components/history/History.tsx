@@ -32,7 +32,7 @@ export const History = ({ currentTime, currnetSlide }: props) => {
           <div className="w-1/3 relative overflow-hidden">
             <Timeline currentTime={currentTime} />
           </div>
-          <div className="w-1/3 px-20 space-y-10">
+          <div className="w-1/3 px-20 space-y-10 h-96">
             <Highlighter
               script={getScript() as Script}
               currentTime={currentTime}

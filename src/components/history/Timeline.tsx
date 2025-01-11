@@ -5,12 +5,40 @@ type props = {
   currentTime: number;
 };
 
-const dates = ["XIX w.", "1945", "2137"];
-const timestamps = [6, 12];
+const dates = ["XIX w.", "50'", "70'-90'"];
+const timestamps = [24, 56];
 
 const imgHrefList = [
-  "/img/photos/history/AdyLovelace.jpg",
-  "/img/photos/history/maszynaLiczaca.jpg",
+  {
+    1: {
+      src: "/img/photos/history/AdyLovelace.jpg",
+      description: "Ada Lovelace - pierwsza programistka w historii",
+    },
+    2: {
+      src: "/img/photos/history/maszynaLiczaca.jpg",
+      description: "Maszyna licząca Charlesa Babbage'a",
+    },
+  },
+  {
+    1: {
+      src: "/img/photos/history/ibm1950.jpg",
+      description: "Jedna z maszyn IBM z lat 50.",
+    },
+    2: {
+      src: "/img/photos/history/fortran.jpg",
+      description: "Twórca języka programowania Fortran",
+    },
+  },
+  {
+    1: {
+      src: "/img/photos/history/microsoft70s.jpg",
+      description: "Założyciele Microsoftu w latach 70.",
+    },
+    2: {
+      src: "/img/photos/history/apple80s.jpg",
+      description: "Sprzęd od apple z lat 80.",
+    },
+  },
 ];
 
 export const Timeline = ({ currentTime }: props) => {
@@ -67,6 +95,19 @@ export const Timeline = ({ currentTime }: props) => {
     };
   }, []);
 
+  const getImage = (order: number) => {
+    switch (nearestTimestamp) {
+      case 0:
+        return imgHrefList[nearestTimestamp][order].src;
+      case 1:
+        return imgHrefList[nearestTimestamp][order].src;
+      case 2:
+        return imgHrefList[nearestTimestamp][order].src;
+    }
+  };
+
+  console.log(getImage(1));
+
   return (
     <div
       ref={headerRef}
@@ -76,24 +117,24 @@ export const Timeline = ({ currentTime }: props) => {
     >
       <div className="h-full flex  items-center w-full">
         <div
-          className="w-1 h-full left-[30px] bg-white absolute z-10"
+          className="w-1 h-full left-[38px] bg-white absolute z-10"
           id="line"
         ></div>
         <div
           className={`z-20 transition-transform flex items-center w-full ${animation}`}
           id="point"
         >
-          <div className="w-16 h-16 rounded-full bg-zinc-900 border-4 flex justify-center items-center text-white font-bold">
+          <div className="w-20 h-20 rounded-full bg-zinc-900 border-4 flex justify-center items-center text-white font-bold">
             {date}
           </div>
           <div className="w-[90%] h-full relative flex flex-col pl-7">
             <div className="w-64 h-40 bg-red-200 relative top-7 hover:scale-110 duration-300 hover:z-10 overflow-hidden">
-              <Image alt="img" src={imgHrefList[0]} width={300} height={200} />
+              <Image alt="img" src={getImage(1)} width={300} height={200} />
             </div>
             <div className="w-64 h-40 bg-red-500 relative left-20 bottom-7 hover:scale-110 duration-300 hover:z-10 overflow-hidden">
               <Image
                 alt="img"
-                src={imgHrefList[1]}
+                src={getImage(2)}
                 width={500}
                 height={400}
                 className="w-72 h-44"
