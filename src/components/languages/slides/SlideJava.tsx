@@ -10,7 +10,7 @@ export const SlideJava = ({ setIsModalOpened }: props) => {
     <div className="bg-red-400 w-full h-full flex flex-col items-center relative justify-between p-5">
       <div className="w-full flex justify-center items-center">
         <Image
-          src={"/img/logos/python.png"}
+          src={"/img/logos/java.png"}
           width={80}
           height={80}
           alt="js logo"

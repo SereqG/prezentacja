@@ -9,7 +9,12 @@ export const SlideRust = ({ setIsModalOpened }: props) => {
   return (
     <div className="bg-orange-400 w-full h-full flex flex-col items-center relative justify-between p-5">
       <div className="w-full flex justify-center items-center">
-        <Image src={"/img/logos/js.png"} width={80} height={80} alt="js logo" />
+        <Image
+          src={"/img/logos/rust.png"}
+          width={80}
+          height={80}
+          alt="js logo"
+        />
       </div>
       <div className="w-3/4 text-white font-semibold text-center">
         Rust to nowoczesny, bezpieczny i wydajny język programowania. Używany do

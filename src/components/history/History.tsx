@@ -28,7 +28,7 @@ export const History = ({ currentTime, currnetSlide }: props) => {
     return (
       <div className="mt-10" id="start">
         <Header text="2. Jak to się wszystko zaczęło?" />
-        <div className="flex justify-center py-12 ">
+        <div className="flex justify-center py-12 h-96 ">
           <div className="w-1/3 relative overflow-hidden">
             <Timeline currentTime={currentTime} />
           </div>
