@@ -38,12 +38,26 @@ export const ToolsAnimation = () => {
 
       {/* Circle following the cursor */}
       <div
-        className="absolute w-24 h-24 bg-white rounded-full pointer-events-none opacity-50"
+        className="absolute w-36 h-36 bg-gradient-radial from-white to-transparent rounded-full pointer-events-none"
         style={{
-          transform: `translate(${debouncedPosition.x - 48}px, ${
-            debouncedPosition.y - 48
+          transition: "transform 0.7s ease",
+        }}
+      />
+
+      {/* Fish image with glow effect */}
+      <img
+        src="/img/other/fish.png" // Replace this with your fish image path
+        alt="Fish"
+        className="absolute pointer-events-none"
+        style={{
+          width: "96px",
+          transform: `translate(${debouncedPosition.x}px, ${
+            debouncedPosition.y - 20
           }px)`,
           transition: "transform 0.7s ease",
+          filter: hovering
+            ? "drop-shadow(0 0 20px rgba(255, 183, 255, 0.8))"
+            : "none",
         }}
       />
     </div>

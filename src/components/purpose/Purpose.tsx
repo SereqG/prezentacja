@@ -26,9 +26,9 @@ export const Purpose = ({ currentTime, currnetSlide }: props) => {
 
   if (currnetSlide === order)
     return (
-      <div className="mt-10" id="start">
+      <div className="mt-10 pb-40" id="start">
         <Header text="3. Do czego służą języki programowania?" />
-        <div className="flex justify-center py-12 items-center">
+        <div className="flex justify-center py-12 items-center mt-10">
           <div className="w-1/3">
             <PurposeAnimation />
           </div>

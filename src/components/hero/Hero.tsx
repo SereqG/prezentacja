@@ -3,7 +3,7 @@ import { Globe } from "./Globe";
 
 export const Hero = () => {
   return (
-    <div className="w-screen h-screen flex xl:items-center ml-[5%] xl:flex-row flex-col ">
+    <div className="w-screen h-screen flex xl:items-center ml-[5%] xl:flex-row flex-col mb-36">
       <div className="mb-24">
         <HeroHeader />
       </div>

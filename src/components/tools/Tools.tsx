@@ -29,9 +29,9 @@ export const Tools = ({ currentTime, currnetSlide }: props) => {
 
   if (currnetSlide === order)
     return (
-      <div className="mt-10" id="start">
+      <div className="mt-10 pb-40" id="start">
         <Header text="4. Czego programista używa w codziennej pracy?" />
-        <div className="flex justify-center py-12 items-center h-96">
+        <div className="flex justify-center py-12 items-center h-96 mt-10">
           <div className="w-1/3 h-full">
             <ToolsAnimation />
           </div>

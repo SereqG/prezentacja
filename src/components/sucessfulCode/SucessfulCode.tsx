@@ -30,9 +30,9 @@ export const SucessfulCode = ({ currentTime, currnetSlide }: props) => {
 
   if (currnetSlide === order)
     return (
-      <div className="mt-10" id="start">
+      <div className="mt-10 pb-40" id="start">
         <Header text="5. Jak pisać skuteczny kod? Czyli wujek google zawsze pomoże" />
-        <div className="flex justify-center py-12 items-center">
+        <div className="flex justify-center py-12 items-center mt-10">
           <div className="w-1/3">
             <SucessfulCodeAnimation />
           </div>
