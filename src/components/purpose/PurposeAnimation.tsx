@@ -1,5 +1,6 @@
 import "@/app/styles/purposeAnimation.css";
 import Image from "next/image";
+import React, { useEffect, useRef, useState } from "react";
 
 type element = {
   background: string;
@@ -79,8 +80,41 @@ const Element = ({ background, language }: element) => {
 };
 
 export const PurposeAnimation = () => {
+  const headerRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              setIsVisible(true);
+            }, 1000); // Opóźnienie 1 sekundy
+          }
+        });
+      },
+      { threshold: 0.1 } // Aktywacja, gdy 10% elementu jest widoczne
+    );
+
+    if (headerRef.current) {
+      observer.observe(headerRef.current);
+    }
+
+    return () => {
+      if (headerRef.current) {
+        observer.unobserve(headerRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <div className="grid grid-cols-2 grid-rows-2 w-full aspect-video gap-4">
+    <div
+      ref={headerRef}
+      className={`grid grid-cols-2 grid-rows-2 w-full aspect-video gap-4 transition-all duration-1000  ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      }`}
+    >
       <Element
         background={"bg-gradient-to-br from-cyan-400 to-blue-700"}
         language="javascript"

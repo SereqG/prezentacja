@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 export const ToolsAnimation = () => {
+  const headerRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
   const [circlePosition, setCirclePosition] = useState({ x: 0, y: 0 });
   const [hovering, setHovering] = useState(false);
   const [debouncedPosition, setDebouncedPosition] = useState(circlePosition);
@@ -16,9 +18,37 @@ export const ToolsAnimation = () => {
     setCirclePosition({ x, y });
   };
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              setIsVisible(true);
+            }, 1000); // Opóźnienie 1 sekundy
+          }
+        });
+      },
+      { threshold: 0.1 } // Aktywacja, gdy 10% elementu jest widoczne
+    );
+
+    if (headerRef.current) {
+      observer.observe(headerRef.current);
+    }
+
+    return () => {
+      if (headerRef.current) {
+        observer.unobserve(headerRef.current);
+      }
+    };
+  }, []);
+
   return (
     <div
-      className="w-full h-full rounded-2xl bg-[url('/img/other/space.png')] bg-cover flex relative overflow-hidden"
+      ref={headerRef}
+      className={`w-full h-full rounded-2xl bg-[url('/img/other/space.png')] bg-cover flex relative overflow-hidden transition-all duration-1000  ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      }`}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
