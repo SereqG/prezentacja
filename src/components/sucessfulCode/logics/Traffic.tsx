@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const GRID_SIZE = 10; // 10x10 grid
 

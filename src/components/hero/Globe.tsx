@@ -8,12 +8,12 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 
 export const Globe = () => {
   const loader = new GLTFLoader();
-  const refContainer = useRef(null);
+  const refContainer = useRef<HTMLDivElement>(null);
 
-  let earth;
+  let earth: THREE.Group;
   let isDragging = false;
   let previousMousePosition = { x: 0, y: 0 };
-  let velocity = new THREE.Vector2(0.003, 0.0003);
+  const velocity = new THREE.Vector2(0.003, 0.0003);
 
   useEffect(() => {
     const scene = new THREE.Scene();
@@ -85,7 +85,7 @@ export const Globe = () => {
       renderer.render(scene, camera);
     }
 
-    function onMouseDown(e) {
+    function onMouseDown(e: MouseEvent) {
       isDragging = true;
       previousMousePosition = { x: e.clientX, y: e.clientY };
     }
@@ -94,7 +94,7 @@ export const Globe = () => {
       isDragging = false;
     }
 
-    function onMouseMove(e) {
+    function onMouseMove(e: MouseEvent) {
       if (isDragging) {
         const deltaMove = {
           x: e.clientX - previousMousePosition.x,

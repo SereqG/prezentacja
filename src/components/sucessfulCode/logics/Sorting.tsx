@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 import { useState } from "react";
+import type p5Types from "p5";
 
 const Sketch = dynamic(() => import("react-p5"), { ssr: false });
 
@@ -14,7 +15,7 @@ export const Sorting = () => {
     );
   }
 
-  const bubbleSortStep = (arr) => {
+  const bubbleSortStep = (arr: number[]) => {
     let swapped = false;
     for (let i = 0; i < arr.length - 1; i++) {
       if (arr[i] > arr[i + 1]) {
@@ -30,19 +31,19 @@ export const Sorting = () => {
     setSorting(true);
   };
 
-  const setup = (p5, canvasParentRef) => {
-    const parentWidth = canvasParentRef.offsetWidth; // Get the container's width
+  const setup = (p5: p5Types, canvasParentRef: Element) => {
+    const parentWidth = (canvasParentRef as HTMLElement).offsetWidth; // Get the container's width
     const canvasHeight = 370; // Fixed height or you can calculate dynamically
     p5.createCanvas(parentWidth, canvasHeight).parent(canvasParentRef);
 
     // Attach an event listener to resize the canvas when the window resizes
     p5.windowResized = () => {
-      const newParentWidth = canvasParentRef.offsetWidth;
+      const newParentWidth = (canvasParentRef as HTMLElement).offsetWidth;
       p5.resizeCanvas(newParentWidth, canvasHeight);
     };
   };
 
-  const draw = (p5) => {
+  const draw = (p5: p5Types) => {
     p5.background(240);
 
     const barWidth = p5.width / array.length;

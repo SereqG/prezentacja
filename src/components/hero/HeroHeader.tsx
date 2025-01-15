@@ -12,7 +12,7 @@ export const HeroHeader = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    let timeout;
+    let timeout: NodeJS.Timeout;
     if (currentIndex < targetText.length) {
       const randomChar = () =>
         String.fromCharCode(33 + Math.floor(Math.random() * 94));

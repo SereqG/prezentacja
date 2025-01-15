@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 
 export const ToolsAnimation = () => {
   const headerRef = useRef<HTMLDivElement>(null);
@@ -11,7 +12,7 @@ export const ToolsAnimation = () => {
     setDebouncedPosition(circlePosition);
   }, [circlePosition]);
 
-  const handleMouseMove = (e) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
@@ -64,7 +65,7 @@ export const ToolsAnimation = () => {
             : "rgba(0, 0, 0, 0.6)",
           transition: "background 0.3s ease",
         }}
-      />
+      ></div>
 
       {/* Circle following the cursor */}
       <div
@@ -74,13 +75,13 @@ export const ToolsAnimation = () => {
         }}
       />
 
-      {/* Fish image with glow effect */}
-      <img
+      <Image
         src="/img/other/fish.png" // Replace this with your fish image path
         alt="Fish"
+        width={96}
+        height={96}
         className="absolute pointer-events-none"
         style={{
-          width: "96px",
           transform: `translate(${debouncedPosition.x}px, ${
             debouncedPosition.y - 20
           }px)`,

@@ -3,6 +3,7 @@
 
 import dynamic from "next/dynamic";
 import { useState } from "react";
+import p5Types from "p5";
 
 // Dynamically import react-p5 to avoid SSR issues
 const Sketch = dynamic(() => import("react-p5"), { ssr: false });
@@ -13,20 +14,19 @@ export const Network = () => {
     amplitude: 100,
     speed: 2,
   });
-
-  const setup = (p5, canvasParentRef) => {
-    const parentWidth = canvasParentRef.offsetWidth; // Get the container's width
+  const setup = (p5: p5Types, canvasParentRef: Element) => {
+    const parentWidth = (canvasParentRef as HTMLElement).offsetWidth; // Get the container's width
     const canvasHeight = 360; // Fixed height or you can calculate dynamically
     p5.createCanvas(parentWidth, canvasHeight).parent(canvasParentRef);
 
     // Attach an event listener to resize the canvas when the window resizes
     p5.windowResized = () => {
-      const newParentWidth = canvasParentRef.offsetWidth;
+      const newParentWidth = (canvasParentRef as HTMLElement).offsetWidth;
       p5.resizeCanvas(newParentWidth, canvasHeight);
     };
   };
 
-  const draw = (p5) => {
+  const draw = (p5: p5Types) => {
     p5.background(30);
     p5.stroke(255);
     p5.noFill();

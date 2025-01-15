@@ -8,7 +8,7 @@ type props = {
 const dates = ["XIX w.", "50'", "70'-90'"];
 const timestamps = [24, 56];
 
-const imgHrefList = [
+const imgHrefList: { [key: number]: { src: string; description: string } }[] = [
   {
     1: {
       src: "/img/photos/history/AdyLovelace.jpg",
@@ -95,14 +95,16 @@ export const Timeline = ({ currentTime }: props) => {
     };
   }, []);
 
-  const getImage = (order: number) => {
+  const getImage = (order: number): string => {
     switch (nearestTimestamp) {
       case 0:
-        return imgHrefList[nearestTimestamp][order].src;
+        return imgHrefList[nearestTimestamp][order]?.src || "";
       case 1:
-        return imgHrefList[nearestTimestamp][order].src;
+        return imgHrefList[nearestTimestamp][order]?.src || "";
       case 2:
-        return imgHrefList[nearestTimestamp][order].src;
+        return imgHrefList[nearestTimestamp][order]?.src || "";
+      default:
+        return "";
     }
   };
 

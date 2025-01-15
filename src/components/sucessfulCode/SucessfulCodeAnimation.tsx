@@ -79,5 +79,5 @@ export const SucessfulCodeAnimation = () => {
     }
   };
 
-  return renderLogic(currentLogic);
+  return renderLogic();
 };
