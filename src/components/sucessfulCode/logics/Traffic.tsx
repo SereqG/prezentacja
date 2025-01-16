@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const GRID_SIZE = 10; // 10x10 grid
 
@@ -40,14 +40,6 @@ export function Traffic() {
     }
   };
 
-  const updateGrid = (x: number, y: number, type: CellType) => {
-    setGrid((prev) => {
-      const newGrid = prev.map((row) => row.map((cell) => ({ ...cell })));
-      newGrid[y][x].type = type;
-      return newGrid;
-    });
-  };
-
   const showMessage = (text: string) => {
     setMessage(text);
     setMessageVisible(true);
@@ -56,6 +48,24 @@ export function Traffic() {
     setTimeout(() => {
       setMessageVisible(false);
     }, 3000);
+  };
+
+  useEffect(() => {
+    if (start === null) {
+      showMessage("Postaw punkt początkowy");
+    } else if (finish === null) {
+      showMessage("Postaw punkt końcowy");
+    } else {
+      showMessage("Postaw przeszkody");
+    }
+  }, [finish, start]);
+
+  const updateGrid = (x: number, y: number, type: CellType) => {
+    setGrid((prev) => {
+      const newGrid = prev.map((row) => row.map((cell) => ({ ...cell })));
+      newGrid[y][x].type = type;
+      return newGrid;
+    });
   };
 
   const findShortestPath = () => {

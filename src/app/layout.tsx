@@ -30,6 +30,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-zinc-900`}
       >
+        <div className="w-screen h-screen bg-black absolute text-white z-30 flex items-center justify-center xl:hidden">
+          Prezentacja jest niedostępna na ekrany tej wielkości. Skorzystaj z
+          większego ekranu!
+        </div>
         <CustomProvider>{children}</CustomProvider>
       </body>
     </html>
