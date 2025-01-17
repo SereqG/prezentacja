@@ -21,11 +21,11 @@ const order: number = 4;
 
 export const SucessfulCode = ({ currentTime, currnetSlide }: props) => {
   const getScript = () => {
-    if (currentTime < 16.5) return scripts[0];
-    if (currentTime > 16.5 && currentTime < 31.5) return scripts[1];
-    if (currentTime > 31.5 && currentTime < 57.5) return scripts[2];
-    if (currentTime > 57.5 && currentTime < 75.8) return scripts[3];
-    if (currentTime > 75.8) return scripts[4];
+    if (currentTime < 15.3) return scripts[0];
+    if (currentTime > 15.3 && currentTime < 28.4) return scripts[1];
+    if (currentTime > 28.4 && currentTime < 55.4) return scripts[2];
+    if (currentTime > 55.4 && currentTime < 72.7) return scripts[3];
+    if (currentTime > 72.7) return scripts[4];
   };
 
   if (currnetSlide === order)
